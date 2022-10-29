@@ -7,18 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E465EA7290C21830033EFE5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E465EA6290C21830033EFE5 /* CustomTextField.swift */; };
+		9E465EA9290C2B280033EFE5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E465EA8290C2B280033EFE5 /* CustomButton.swift */; };
+		9E465EAB290C47DD0033EFE5 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E465EAA290C47DD0033EFE5 /* SignUpView.swift */; };
+		9E50EA5B290D59D100A68A0F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50EA5A290D59D100A68A0F /* HomeView.swift */; };
+		9E50EA5D290D59F700A68A0F /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50EA5C290D59F700A68A0F /* AddView.swift */; };
+		9E50EA5F290D5A0800A68A0F /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50EA5E290D5A0800A68A0F /* SettingView.swift */; };
+		9E50EA61290D60C600A68A0F /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50EA60290D60C600A68A0F /* ItemView.swift */; };
+		9E50EA65290D7F3C00A68A0F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E50EA64290D7F3C00A68A0F /* DetailView.swift */; };
 		9EBDB7B4290C0D69004CBBA8 /* Sell_and_buyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDB7B3290C0D69004CBBA8 /* Sell_and_buyApp.swift */; };
 		9EBDB7B6290C0D69004CBBA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDB7B5290C0D69004CBBA8 /* ContentView.swift */; };
 		9EBDB7B8290C0D6A004CBBA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EBDB7B7290C0D6A004CBBA8 /* Assets.xcassets */; };
 		9EBDB7BB290C0D6A004CBBA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EBDB7BA290C0D6A004CBBA8 /* Preview Assets.xcassets */; };
+		9EBDB7C7290C0E3C004CBBA8 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDB7C6290C0E3C004CBBA8 /* SignInView.swift */; };
+		9EBDB7CB290C1831004CBBA8 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EBDB7C9290C1831004CBBA8 /* Poppins-Medium.ttf */; };
+		9EBDB7CC290C1831004CBBA8 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EBDB7CA290C1831004CBBA8 /* Poppins-Regular.ttf */; };
+		9EBDB7D0290C1CC1004CBBA8 /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDB7CF290C1CC1004CBBA8 /* FontStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E465EA6290C21830033EFE5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		9E465EA8290C2B280033EFE5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		9E465EAA290C47DD0033EFE5 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		9E50EA5A290D59D100A68A0F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9E50EA5C290D59F700A68A0F /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		9E50EA5E290D5A0800A68A0F /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		9E50EA60290D60C600A68A0F /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		9E50EA64290D7F3C00A68A0F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9EBDB7B0290C0D69004CBBA8 /* Sell and buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sell and buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EBDB7B3290C0D69004CBBA8 /* Sell_and_buyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sell_and_buyApp.swift; sourceTree = "<group>"; };
 		9EBDB7B5290C0D69004CBBA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9EBDB7B7290C0D6A004CBBA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EBDB7BA290C0D6A004CBBA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9EBDB7C6290C0E3C004CBBA8 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		9EBDB7C9290C1831004CBBA8 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		9EBDB7CA290C1831004CBBA8 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		9EBDB7CD290C1860004CBBA8 /* Sell-and-buy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sell-and-buy-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9EBDB7CF290C1CC1004CBBA8 /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +76,12 @@
 		9EBDB7B2290C0D69004CBBA8 /* Sell and buy */ = {
 			isa = PBXGroup;
 			children = (
+				9EBDB7CE290C1C80004CBBA8 /* Helper */,
+				9EBDB7CD290C1860004CBBA8 /* Sell-and-buy-Info.plist */,
+				9EBDB7C8290C1808004CBBA8 /* Fonts */,
+				9EBDB7C3290C0DAF004CBBA8 /* Model */,
+				9EBDB7C2290C0DA7004CBBA8 /* View */,
+				9EBDB7C1290C0D86004CBBA8 /* ViewModel */,
 				9EBDB7B3290C0D69004CBBA8 /* Sell_and_buyApp.swift */,
 				9EBDB7B5290C0D69004CBBA8 /* ContentView.swift */,
 				9EBDB7B7290C0D6A004CBBA8 /* Assets.xcassets */,
@@ -65,6 +96,53 @@
 				9EBDB7BA290C0D6A004CBBA8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9EBDB7C1290C0D86004CBBA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9EBDB7C2290C0DA7004CBBA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EBDB7C6290C0E3C004CBBA8 /* SignInView.swift */,
+				9E465EAA290C47DD0033EFE5 /* SignUpView.swift */,
+				9E50EA5A290D59D100A68A0F /* HomeView.swift */,
+				9E50EA5C290D59F700A68A0F /* AddView.swift */,
+				9E50EA5E290D5A0800A68A0F /* SettingView.swift */,
+				9E50EA64290D7F3C00A68A0F /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9EBDB7C3290C0DAF004CBBA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9EBDB7C8290C1808004CBBA8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9EBDB7C9290C1831004CBBA8 /* Poppins-Medium.ttf */,
+				9EBDB7CA290C1831004CBBA8 /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9EBDB7CE290C1C80004CBBA8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9EBDB7CF290C1CC1004CBBA8 /* FontStyles.swift */,
+				9E465EA6290C21830033EFE5 /* CustomTextField.swift */,
+				9E465EA8290C2B280033EFE5 /* CustomButton.swift */,
+				9E50EA60290D60C600A68A0F /* ItemView.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +203,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EBDB7CB290C1831004CBBA8 /* Poppins-Medium.ttf in Resources */,
 				9EBDB7BB290C0D6A004CBBA8 /* Preview Assets.xcassets in Resources */,
 				9EBDB7B8290C0D6A004CBBA8 /* Assets.xcassets in Resources */,
+				9EBDB7CC290C1831004CBBA8 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +217,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E465EA7290C21830033EFE5 /* CustomTextField.swift in Sources */,
+				9E50EA65290D7F3C00A68A0F /* DetailView.swift in Sources */,
+				9E50EA5F290D5A0800A68A0F /* SettingView.swift in Sources */,
+				9EBDB7C7290C0E3C004CBBA8 /* SignInView.swift in Sources */,
+				9E50EA5D290D59F700A68A0F /* AddView.swift in Sources */,
+				9E465EA9290C2B280033EFE5 /* CustomButton.swift in Sources */,
+				9E50EA61290D60C600A68A0F /* ItemView.swift in Sources */,
+				9E465EAB290C47DD0033EFE5 /* SignUpView.swift in Sources */,
 				9EBDB7B6290C0D69004CBBA8 /* ContentView.swift in Sources */,
+				9E50EA5B290D59D100A68A0F /* HomeView.swift in Sources */,
+				9EBDB7D0290C1CC1004CBBA8 /* FontStyles.swift in Sources */,
 				9EBDB7B4290C0D69004CBBA8 /* Sell_and_buyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +360,7 @@
 				DEVELOPMENT_TEAM = NUU979W77L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sell-and-buy-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +390,7 @@
 				DEVELOPMENT_TEAM = NUU979W77L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Sell-and-buy-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
