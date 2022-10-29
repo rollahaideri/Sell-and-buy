@@ -21,14 +21,14 @@ struct SignUpView: View {
                 Spacer(minLength: 180)
                 
                 
-                    // Title Container
-                    VStack(alignment: .leading) {
-                        if !istyping {
-                            Text("Sign Up").font(.pageTitle).foregroundColor(.white).focused($istyping)
-                            Text("Create a new account!").font(.pageSubTitle).foregroundColor(.white).focused($istyping)
-                        }
+                // Title Container
+                VStack(alignment: .leading) {
+                    if !istyping {
+                        Text("Sign Up").font(.pageTitle).foregroundColor(.white).focused($istyping)
+                        Text("Create a new account!").font(.pageSubTitle).foregroundColor(.white).focused($istyping)
                     }
-                    .padding(.trailing, 110)
+                }
+                .padding(.trailing, 110)
                 
                 
                 Spacer(minLength: 60)
@@ -40,7 +40,7 @@ struct SignUpView: View {
                         .focused($istyping)
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
-                        
+                    
                 }.padding(.horizontal, 30)
                 
                 Spacer(minLength: 36)
@@ -52,7 +52,7 @@ struct SignUpView: View {
                         .focused($istyping)
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
-                        
+                    
                 }.padding(.horizontal, 30)
                 
                 Spacer(minLength: 36)
@@ -65,7 +65,7 @@ struct SignUpView: View {
                         .focused($istyping)
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
-                        
+                    
                 }.padding(.horizontal, 30)
                 
                 Spacer(minLength: 80)
@@ -86,7 +86,7 @@ struct SignUpView: View {
                     } label: {
                         Text("Sign in").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
                     }
-
+                    
                 }.padding(.bottom, 190)
                 
                 
@@ -94,7 +94,7 @@ struct SignUpView: View {
         }
     }
 }
-   
+
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {

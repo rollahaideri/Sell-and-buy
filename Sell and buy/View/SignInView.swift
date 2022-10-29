@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct SignInView: View {
+    
     @State var email = ""
     @State var password = ""
+    
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -18,13 +20,12 @@ struct SignInView: View {
             VStack {
                 Spacer(minLength: 180)
                 
-                
-                    // Title Container
-                    VStack(alignment: .leading) {
-                        Text("Sign in").font(.pageTitle).foregroundColor(.white)
-                        Text("Welcome!").font(.pageSubTitle).foregroundColor(.white)
-                    }
-                    .padding(.trailing, 170 )
+                // Title Container
+                VStack(alignment: .leading) {
+                    Text("Sign in").font(.pageTitle).foregroundColor(.white)
+                    Text("Welcome!").font(.pageSubTitle).foregroundColor(.white)
+                }
+                .padding(.trailing, 170 )
                 
                 
                 Spacer(minLength: 120)
@@ -35,7 +36,7 @@ struct SignInView: View {
                     TextField("", text: $email)
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
-                        
+                    
                 }.padding(.horizontal, 30)
                 
                 Spacer(minLength: 36)
@@ -46,7 +47,7 @@ struct SignInView: View {
                     SecureField("", text: $password)
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
-                        
+                    
                 }.padding(.horizontal, 30)
                 
                 Spacer(minLength: 110)
@@ -67,7 +68,7 @@ struct SignInView: View {
                     } label: {
                         Text("Sign up").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
                     }
-
+                    
                 }.padding(.bottom, 190)
                 
                 

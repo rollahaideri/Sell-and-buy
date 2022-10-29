@@ -9,38 +9,38 @@ import SwiftUI
 
 struct ContentView: View {
     
-   
+    
     
     var body: some View {
         
         
         
         
+        
+        //                SignInView()
+        //                SignUpView()
+        
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName:"house.fill")
+                        .renderingMode(.template)
+                }
             
-//                SignInView()
-//                SignUpView()
+            AddView()
+                .tabItem {
+                    Image(systemName:"plus.app.fill")
+                        .renderingMode(.template)
+                    
+                }
             
-            TabView {
-                HomeView()
-                    .tabItem {
-                        Image(systemName:"house.fill")
-                            .renderingMode(.template)
-                    }
-                
-                AddView()
-                    .tabItem {
-                        Image(systemName:"plus.app.fill")
-                            .renderingMode(.template)
-                        
-                    }
-                
-                SettingView()
-                    .tabItem {
-                        Image(systemName:"gearshape.fill")
-                            .renderingMode(.template)
-                    }
-            }
-            
+            SettingView()
+                .tabItem {
+                    Image(systemName:"gearshape.fill")
+                        .renderingMode(.template)
+                }
+        }
+        
         
         
     }

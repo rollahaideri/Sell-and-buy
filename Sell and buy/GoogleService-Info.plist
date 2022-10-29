@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>899056378425-i9immmt533no0eh8pklvdj4d9mgt6s0o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.899056378425-i9immmt533no0eh8pklvdj4d9mgt6s0o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAzXrTVP_dW3J5Y4NsJiIEfx4f9CyuBQpQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>899056378425</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.rolla.Sell-and-buy</string>
+	<key>PROJECT_ID</key>
+	<string>buy-and-sell-ea25e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>buy-and-sell-ea25e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:899056378425:ios:06c2ea2f5075e44eb8a3e8</string>
+</dict>
+</plist>

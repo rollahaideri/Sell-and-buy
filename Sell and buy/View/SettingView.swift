@@ -16,7 +16,7 @@ struct SettingView: View {
             LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
             
-           
+            
             Text("Setting View")
             
             

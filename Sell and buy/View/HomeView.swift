@@ -24,11 +24,11 @@ struct HomeView: View {
                         
                         ForEach(data, id: \.self) {
                             number in ZStack {ItemView()
-                        }
-//                        ForEach(searchResults, id: \.self) { name in
-//                            NavigationLink(destination: Text(name)) {
-//                                Text(name)
-//                            }
+                            }
+                            //                        ForEach(searchResults, id: \.self) { name in
+                            //                            NavigationLink(destination: Text(name)) {
+                            //                                Text(name)
+                            //                            }
                         }
                     }
                 }
@@ -39,13 +39,13 @@ struct HomeView: View {
         }
         
     }
-//    var searchResults: [String] {
-//        if searchText.isEmpty {
-//            return names
-//        } else {
-//            return names.filter { $0.contains(searchText) }
-//        }
-//    }
+    //    var searchResults: [String] {
+    //        if searchText.isEmpty {
+    //            return names
+    //        } else {
+    //            return names.filter { $0.contains(searchText) }
+    //        }
+    //    }
 }
 
 

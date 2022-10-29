@@ -13,8 +13,8 @@ struct DetailView: View {
             LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
             
-           
-                
+            
+            
             
             ScrollView{
                 VStack(alignment: .leading, spacing: 10){
@@ -32,7 +32,7 @@ struct DetailView: View {
                             Text("072302020202")
                                 .foregroundColor(.white)
                         }
-
+                        
                     }.padding()
                     
                 }

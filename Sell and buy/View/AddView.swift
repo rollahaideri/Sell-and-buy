@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AddView: View {
     init() {
-            UITextView.appearance().backgroundColor = .clear // First, remove the UITextView's backgroundColor.
-        }
+        UITextView.appearance().backgroundColor = .clear // First, remove the UITextView's backgroundColor.
+    }
     
     @State private var title = ""
     @State private var price = ""
@@ -69,7 +69,7 @@ struct AddView: View {
                         Text("Cancel").font(.pageSubTitle)
                             .foregroundColor(Color(.white))
                     }
-
+                    
                 }.padding()
                 
             }
