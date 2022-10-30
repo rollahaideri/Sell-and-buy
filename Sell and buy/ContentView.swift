@@ -9,6 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
+    init() {
+      UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
+        UITabBar.appearance().backgroundColor = UIColor(Color("Field-Color"))
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.darkGray
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
+    }
+    
     @StateObject var viewModel = FirebaseViewModel()
     
     var body: some View {
@@ -17,13 +24,13 @@ struct ContentView: View {
             
             if viewModel.userLoggedIn {
                 TabView {
-                    HomeView()
+                    HomeView(viewModel: viewModel)
                         .tabItem {
                             Image(systemName:"house.fill")
                                 .renderingMode(.template)
-                        }
+                        }.toolbarBackground(Color.white, for: .tabBar)
                     
-                    AddView()
+                    AddView(viewModel: viewModel)
                         .tabItem {
                             Image(systemName:"plus.app.fill")
                                 .renderingMode(.template)

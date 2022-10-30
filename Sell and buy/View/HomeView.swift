@@ -8,10 +8,16 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    
+    
+    @ObservedObject var viewModel : FirebaseViewModel
     let names = ["Holly", "Josh", "Rhonda", "Ted"]
-    private var data: [Int] = Array(1...20)
-    @State private var searchText = ""
-    private let adaptiveColumns = [ GridItem(.adaptive(minimum: 170))]
+    
+    @State  var searchText = ""
+     let adaptiveColumns = [ GridItem(.adaptive(minimum: 170))]
+    
+    
     var body: some View {
         
         NavigationView {
@@ -20,32 +26,45 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 ScrollView{
-                    LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                    
+                    if let userData = viewModel.userData{
                         
-                        ForEach(data, id: \.self) {
-                            number in ZStack {ItemView()
+                            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                            
+                                ForEach(userData.items) {
+                                    item in NavigationLink(destination: DetailView( title: item.title, price: item.price, description: item.description))
+                                    {ItemView(title: item.title, price: item.price)
+                                }
+                                    
+                                    
+    //                                                    ForEach(searchResults, id: \.self) { name in
+    //                                        NavigationLink(destination: Text(name)) {
+    //                                            Text(name)
+    //                                        }
+                                    
+                                    
                             }
-                            //                        ForEach(searchResults, id: \.self) { name in
-                            //                            NavigationLink(destination: Text(name)) {
-                            //                                Text(name)
-                            //                            }
                         }
-                    }
+                        
+                       
+                }
+                    
                 }
                 .padding()
                 .searchable(text: $searchText)
+                
                 
             }
         }
         
     }
-    //    var searchResults: [String] {
-    //        if searchText.isEmpty {
-    //            return names
-    //        } else {
-    //            return names.filter { $0.contains(searchText) }
-    //        }
-    //    }
+//        var searchResults: [] {
+//            if searchText.isEmpty {
+//                return viewModel.userData
+//            } else {
+//                return names.filter { $0.contains(searchText) }
+//            }
+//        }
 }
 
 
@@ -56,6 +75,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewModel: FirebaseViewModel())
     }
 }

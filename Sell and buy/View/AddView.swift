@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct AddView: View {
-    init() {
-        UITextView.appearance().backgroundColor = .clear // First, remove the UITextView's backgroundColor.
-    }
     
+    
+//    init() {
+//        UITextView.appearance().backgroundColor = .clear // First, remove the UITextView's backgroundColor.
+//    }
+    @ObservedObject var viewModel : FirebaseViewModel
     @State private var title = ""
     @State private var price = ""
     @State private var description = ""
@@ -59,7 +61,10 @@ struct AddView: View {
                 // Buttons Containar
                 VStack (spacing: 25){
                     Button {
-                        print("button pressed")
+                        if title != "" && price != "" && description != "" {
+                            viewModel.addData(items: Items(title: title, price: price, description: description))
+                            
+                        }
                     } label: {
                         Text("Publish").font(.buttonTitle)
                     }.buttonStyle(CustomButton())
@@ -79,6 +84,6 @@ struct AddView: View {
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView()
+        AddView(viewModel: FirebaseViewModel())
     }
 }

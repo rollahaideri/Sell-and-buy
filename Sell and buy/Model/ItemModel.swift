@@ -9,11 +9,15 @@ import Foundation
 import FirebaseFirestoreSwift
 
 
-struct Items: Codable, Identifiable {
+struct UserData: Codable, Identifiable {
     @DocumentID var id: String?
+    var items: [Items]
+    
+}
+
+struct Items: Codable, Identifiable {
+    var id = UUID()
     var title: String
     var price: String
     var description: String
-    
-    
 }

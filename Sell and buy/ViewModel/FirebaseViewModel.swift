@@ -16,7 +16,7 @@ class FirebaseViewModel: ObservableObject {
     @Published var items = [Items]()
     @Published var userLoggedIn = false
     @Published var currentUser: User?
-    @Published var userDocument: Items?
+    @Published var userData: UserData?
     var userDocumentListener: ListenerRegistration?
     
     init() {
@@ -49,7 +49,7 @@ class FirebaseViewModel: ObservableObject {
             
             
             if let authResult = authResult {
-                let newItem = Items(id: authResult.user.uid, title: "", price: "", description: "")
+                let newItem = UserData(id: authResult.user.uid,items: [])
                 
                 do {
                     _ = try dbRef.document(authResult.user.uid).setData(from: newItem)
@@ -91,7 +91,7 @@ class FirebaseViewModel: ObservableObject {
     func listenToDb() {
         if let currentUser = currentUser {
             
-            userDocumentListener = self.db.collection("user").document(currentUser.uid).addSnapshotListener({ snapshot , error in
+            userDocumentListener = self.db.collection("users").document(currentUser.uid).addSnapshotListener({ snapshot , error in
                 if let error = error {
                     print("Error occured \(error)")
                     return
@@ -102,15 +102,15 @@ class FirebaseViewModel: ObservableObject {
                 }
                 
                 let result = Result {
-                    try snapshot.data(as: Items.self)
+                    try snapshot.data(as: UserData.self)
                 }
                 
                 switch result {
-                case .success(let userData):
+                case .success(let userDocument):
                    
-                        self.userDocument = userData
+                        self.userData = userDocument
                     
-                    print(userData)
+                    print(userDocument)
                     break
                 case .failure(let error):
                     print("Something went wrong retrieving data: \(error)")
@@ -125,6 +125,17 @@ class FirebaseViewModel: ObservableObject {
     func stopListeningToDb() {
         if let userDocumentListener = userDocumentListener {
             userDocumentListener.remove()
+        }
+    }
+    
+    // Add data
+    func addData(items: Items) {
+        if let currentUser = currentUser {
+            do {
+                try db.collection("users").document(currentUser.uid).updateData(["items": FieldValue.arrayUnion([Firestore.Encoder().encode(items)])])
+            } catch {
+                print("Error occured retriving data")
+            }
         }
     }
 }

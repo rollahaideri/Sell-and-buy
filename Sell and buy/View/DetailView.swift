@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DetailView: View {
+    var title: String
+    var price: String
+    var description: String
     var body: some View {
         ZStack (){
             LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -22,9 +25,9 @@ struct DetailView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                     VStack(alignment: .leading, spacing: 10){
-                        Text("Title").font(.pageSubTitle).foregroundColor(.white)
-                        Text("Price").font(.pageSubTitle).foregroundColor(Color("Border-Btn"))
-                        Text("Description").font(.pageSubTitle).foregroundColor(.white)
+                        Text(title).font(.pageSubTitle).foregroundColor(.white)
+                        Text(price).font(.pageSubTitle).foregroundColor(Color("Border-Btn"))
+                        Text(description).font(.pageSubTitle).foregroundColor(.white)
                         
                         Button {
                             print("Call")
@@ -45,6 +48,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(title: "", price: "", description: "")
     }
 }
