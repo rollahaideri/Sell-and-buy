@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @ObservedObject var viewModel: FirebaseViewModel
+    
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
@@ -73,19 +75,13 @@ struct SignUpView: View {
                 // Buttons Container
                 VStack (spacing: 15){
                     Button {
-                        print("button pressed")
+                        if email != "" && password != "" && confirmPassword == password {
+                            viewModel.registerUser(email: email, password: password)
+                        }
                     } label: {
                         Text("Sign up").font(.buttonTitle)
                     }.buttonStyle(CustomButton())
                     
-                    Text("------------------- or -------------------").foregroundColor(Color("Field-Text"))
-                    NavigationLink {
-                        withAnimation {
-                            SignInView()
-                        }
-                    } label: {
-                        Text("Sign in").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
-                    }
                     
                 }.padding(.bottom, 190)
                 
@@ -98,6 +94,6 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        SignUpView(viewModel: FirebaseViewModel())
     }
 }

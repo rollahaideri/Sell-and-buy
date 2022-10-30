@@ -9,39 +9,45 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
+    @StateObject var viewModel = FirebaseViewModel()
     
     var body: some View {
         
-        
-        
-        
-        
-        //                SignInView()
-        //                SignUpView()
-        
-        TabView {
-            HomeView()
-                .tabItem {
-                    Image(systemName:"house.fill")
-                        .renderingMode(.template)
-                }
+        NavigationView {
             
-            AddView()
-                .tabItem {
-                    Image(systemName:"plus.app.fill")
-                        .renderingMode(.template)
+            if viewModel.userLoggedIn {
+                TabView {
+                    HomeView()
+                        .tabItem {
+                            Image(systemName:"house.fill")
+                                .renderingMode(.template)
+                        }
                     
+                    AddView()
+                        .tabItem {
+                            Image(systemName:"plus.app.fill")
+                                .renderingMode(.template)
+                            
+                        }
+                    
+                    SettingView(viewModel: viewModel)
+                        .tabItem {
+                            Image(systemName:"gearshape.fill")
+                                .renderingMode(.template)
+                        }
                 }
+                
+            } else {
+                
+                
+                SignInView(viewModel: viewModel)
+                SignUpView(viewModel: viewModel)
+                
+                
+            }
             
-            SettingView()
-                .tabItem {
-                    Image(systemName:"gearshape.fill")
-                        .renderingMode(.template)
-                }
+            
         }
-        
-        
         
     }
 }

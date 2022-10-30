@@ -9,15 +9,25 @@ import SwiftUI
 
 struct SettingView: View {
     
+    @ObservedObject var viewModel: FirebaseViewModel
     
     var body: some View {
+        
+        
         
         ZStack{
             LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
             
             
-            Text("Setting View")
+            Button {
+                
+                    viewModel.logOut()
+                
+            } label: {
+                Text("Sign out").foregroundColor(.white)
+            }
+
             
             
         }
@@ -27,6 +37,6 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        SettingView(viewModel: FirebaseViewModel())
     }
 }
