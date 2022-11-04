@@ -15,23 +15,17 @@ struct SignInView: View {
     @State var password = ""
     
     var body: some View {
-        ZStack{
+        ZStack {
             LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
             
-            VStack {
-                Spacer(minLength: 180)
-                
+            VStack (spacing: 40){
                 // Title Container
                 VStack(alignment: .leading) {
                     Text("Sign in").font(.pageTitle).foregroundColor(.white)
                     Text("Welcome!").font(.pageSubTitle).foregroundColor(.white)
                 }
-                .padding(.trailing, 170 )
-                
-                
-                Spacer(minLength: 120)
-                
+           
                 // Email Field Container
                 VStack(alignment: .leading, spacing: 9){
                     Text("Email").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
@@ -39,9 +33,7 @@ struct SignInView: View {
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
                     
-                }.padding(.horizontal, 30)
-                
-                Spacer(minLength: 36)
+                }.padding()
                 
                 // Password Field Container
                 VStack(alignment: .leading, spacing: 9){
@@ -50,9 +42,7 @@ struct SignInView: View {
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
                     
-                }.padding(.horizontal, 30)
-                
-                Spacer(minLength: 110)
+                }.padding()
                 
                 // Buttons Container
                 VStack (spacing: 15){
@@ -73,7 +63,7 @@ struct SignInView: View {
                         Text("Sign up").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
                     }
                     
-                }.padding(.bottom, 190)
+                }.padding()
                 
                 
             }

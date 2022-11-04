@@ -7,6 +7,9 @@
 
 import Foundation
 import Firebase
+import FirebaseStorage
+import SwiftUI
+
 
 
 
@@ -16,7 +19,8 @@ class FirebaseViewModel: ObservableObject {
     @Published var items = [Items]()
     @Published var userLoggedIn = false
     @Published var currentUser: User?
-    @Published var userData: UserData?
+    @Published var userData = [UserData]()
+    
     var userDocumentListener: ListenerRegistration?
     
     init() {
@@ -25,7 +29,9 @@ class FirebaseViewModel: ObservableObject {
             if let user = user {
                 self.userLoggedIn = true
                 self.currentUser = user
-                self.listenToDb()
+                self.getAlldocument()
+//                self.listenToDb()
+                
                 
             } else {
                 
@@ -87,39 +93,71 @@ class FirebaseViewModel: ObservableObject {
         }
     }
     
-    // Database Listener
-    func listenToDb() {
-        if let currentUser = currentUser {
+    func getAlldocument() {
+        
+        self.db.collection("users").addSnapshotListener ({ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            }
             
-            userDocumentListener = self.db.collection("users").document(currentUser.uid).addSnapshotListener({ snapshot , error in
-                if let error = error {
-                    print("Error occured \(error)")
-                    return
-                }
-                guard let snapshot = snapshot else {
-                    return
-                    
-                }
+            guard let querySnapshot = querySnapshot else {
+                return
+            }
+        
+            for document in querySnapshot.documents {
+                //                        print("\(document.documentID) => \(document.data())")
                 
                 let result = Result {
-                    try snapshot.data(as: UserData.self)
-                }
+                    
+                    try document.data(as: UserData.self)                        }
                 
                 switch result {
-                case .success(let userDocument):
-                   
-                        self.userData = userDocument
-                    
-                    print(userDocument)
+                case.success(let userDocument):
+                    self.userData = []
+                    self.userData.append(userDocument)
+                    print("This is userDocument: \(userDocument)")
                     break
-                case .failure(let error):
-                    print("Something went wrong retrieving data: \(error)")
+                case.failure(let error):
+                    print("Error getting Data: \(error.localizedDescription)")
                     break
                 }
-            })
-            
-        }
+            }
+        })
     }
+    // Database Listener
+//    func listenToDb() {
+//        if let currentUser = currentUser {
+//            
+//            userDocumentListener = self.db.collection("users").document(currentUser.uid).addSnapshotListener({ snapshot , error in
+//                if let error = error {
+//                    print("Error occured \(error)")
+//                    return
+//                }
+//                guard let snapshot = snapshot else {
+//                    return
+//                    
+//                }
+//                
+//                
+//                let result = Result {
+//                    try snapshot.data(as: UserData.self)
+//                }
+//                
+//                switch result {
+//                case .success(let userDocument):
+//                    
+//                    self.userData = userDocument
+//                    
+//                    print(userDocument)
+//                    break
+//                case .failure(let error):
+//                    print("Something went wrong retrieving data: \(error)")
+//                    break
+//                }
+//            })
+//            
+//        }
+//    }
     
     // Stop listening to database
     func stopListeningToDb() {
@@ -138,6 +176,9 @@ class FirebaseViewModel: ObservableObject {
             }
         }
     }
+    
+    // Upload photo to firebase storage
+    
 }
 
 

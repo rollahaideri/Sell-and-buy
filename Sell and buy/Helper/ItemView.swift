@@ -11,13 +11,24 @@ struct ItemView: View {
     
      var title: String
      var price: String
+    var image: String?
     
     
     var body: some View {
         VStack (alignment: .leading){
            
-                    Image("iPhone")
-                        .resizable()
+            
+            AsyncImage(url: URL(string: image ?? ""), content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+            }, placeholder: {
+                Color.gray
+            })
+                    
+                    
+            
+                        
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(14)
                         .overlay(RoundedRectangle(cornerRadius: 14)

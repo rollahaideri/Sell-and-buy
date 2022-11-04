@@ -20,7 +20,7 @@ struct SignUpView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Spacer(minLength: 180)
+                
                 
                 
                 // Title Container
@@ -30,10 +30,10 @@ struct SignUpView: View {
                         Text("Create a new account!").font(.pageSubTitle).foregroundColor(.white).focused($istyping)
                     }
                 }
-                .padding(.trailing, 110)
+                .padding()
                 
                 
-                Spacer(minLength: 60)
+                
                 
                 // Email Field Container
                 VStack(alignment: .leading, spacing: 9){
@@ -43,9 +43,9 @@ struct SignUpView: View {
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
                     
-                }.padding(.horizontal, 30)
+                }.padding()
                 
-                Spacer(minLength: 36)
+                
                 
                 // Password Field Container
                 VStack(alignment: .leading, spacing: 9){
@@ -55,9 +55,9 @@ struct SignUpView: View {
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
                     
-                }.padding(.horizontal, 30)
+                }.padding()
                 
-                Spacer(minLength: 36)
+                
                 
                 // Confirm Passwor Field Container
                 VStack(alignment: .leading, spacing: 9){
@@ -68,9 +68,9 @@ struct SignUpView: View {
                         .foregroundColor(Color("Field-Text"))
                         .textFieldStyle(CustomTextField())
                     
-                }.padding(.horizontal, 30)
+                }.padding()
                 
-                Spacer(minLength: 80)
+                
                 
                 // Buttons Container
                 VStack (spacing: 15){
@@ -83,7 +83,7 @@ struct SignUpView: View {
                     }.buttonStyle(CustomButton())
                     
                     
-                }.padding(.bottom, 190)
+                }.padding()
                 
                 
             }

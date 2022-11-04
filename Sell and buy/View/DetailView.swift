@@ -11,6 +11,7 @@ struct DetailView: View {
     var title: String
     var price: String
     var description: String
+    var image: String?
     var body: some View {
         ZStack (){
             LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -21,9 +22,13 @@ struct DetailView: View {
             
             ScrollView{
                 VStack(alignment: .leading, spacing: 10){
-                    Image("iPhone")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    AsyncImage(url: URL(string: image ?? ""), content: { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }, placeholder: {
+                        Color.gray
+                    })
                     VStack(alignment: .leading, spacing: 10){
                         Text(title).font(.pageSubTitle).foregroundColor(.white)
                         Text(price).font(.pageSubTitle).foregroundColor(Color("Border-Btn"))
@@ -48,6 +53,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(title: "", price: "", description: "")
+        DetailView(title: "", price: "", description: "", image: "")
     }
 }

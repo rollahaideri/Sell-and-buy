@@ -12,10 +12,10 @@ struct HomeView: View {
     
     
     @ObservedObject var viewModel : FirebaseViewModel
-    let names = ["Holly", "Josh", "Rhonda", "Ted"]
+   
     
     @State  var searchText = ""
-     let adaptiveColumns = [ GridItem(.adaptive(minimum: 170))]
+     let adaptiveColumns = [ GridItem(.adaptive(minimum: 120))]
     
     
     var body: some View {
@@ -28,24 +28,27 @@ struct HomeView: View {
                 ScrollView{
                     
                     if let userData = viewModel.userData{
-                        
-                            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                        ForEach(userData) { datum in
                             
-                                ForEach(userData.items) {
-                                    item in NavigationLink(destination: DetailView( title: item.title, price: item.price, description: item.description))
-                                    {ItemView(title: item.title, price: item.price)
+                            
+                            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                                
+                                ForEach($viewModel.userData) {
+                                    user in
+                                    NavigationLink(destination: DetailView( title: user.title, price: user.price, description: user.description, image: user.image))
+                                    {ItemView(title: user.title, price: user.price, image: user.image)
+                                    }
+                                    
+                                    
+                                    //                                                    ForEach(searchResults, id: \.self) { name in
+                                    //                                        NavigationLink(destination: Text(name)) {
+                                    //                                            Text(name)
+                                    //                                        }
+                                    
+                                    
                                 }
-                                    
-                                    
-    //                                                    ForEach(searchResults, id: \.self) { name in
-    //                                        NavigationLink(destination: Text(name)) {
-    //                                            Text(name)
-    //                                        }
-                                    
-                                    
                             }
                         }
-                        
                        
                 }
                     

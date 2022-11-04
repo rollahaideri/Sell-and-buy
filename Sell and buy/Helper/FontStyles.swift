@@ -11,11 +11,11 @@ import SwiftUI
 extension Font {
     
     static var pageTitle: Font {
-        return Font.custom("Poppins-Medium", size: 42)
+        return Font.custom("Poppins-Medium", size: 35)
     }
     
     static var pageSubTitle: Font {
-        return Font.custom("Poppins-Regular", size: 20)
+        return Font.custom("Poppins-Regular", size: 17)
     }
     
     static var buttonTitle: Font {

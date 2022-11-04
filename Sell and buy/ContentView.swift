@@ -11,8 +11,8 @@ struct ContentView: View {
     
     init() {
       UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
-        UITabBar.appearance().backgroundColor = UIColor(Color("Field-Color"))
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor.darkGray
+//        UITabBar.appearance().backgroundColor = UIColor(Color("Field-Color"))
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor(Color("Field-Color"))
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
     }
     

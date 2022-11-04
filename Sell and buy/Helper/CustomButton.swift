@@ -14,8 +14,8 @@ struct CustomButton: ButtonStyle {
         configuration.label
             
 //            .animation(.default, value: configuration.isPressed)
-            .padding(.horizontal, 130)
-            .padding(.vertical, 17)
+            .padding(.horizontal, 100)
+            .padding(.vertical, 13)
             .background(Color("Field-Color"))
             .cornerRadius(25)
             .shadow(color: Color("Border-Btn").opacity(0.3), radius: 10, x: 4, y: 4)
