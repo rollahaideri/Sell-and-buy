@@ -103,7 +103,7 @@ class FirebaseViewModel: ObservableObject {
             guard let querySnapshot = querySnapshot else {
                 return
             }
-        
+            self.userData = []
             for document in querySnapshot.documents {
                 //                        print("\(document.documentID) => \(document.data())")
                 
@@ -113,7 +113,7 @@ class FirebaseViewModel: ObservableObject {
                 
                 switch result {
                 case.success(let userDocument):
-                    self.userData = []
+                    
                     self.userData.append(userDocument)
                     print("This is userDocument: \(userDocument)")
                     break

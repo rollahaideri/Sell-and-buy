@@ -15,7 +15,7 @@ struct HomeView: View {
    
     
     @State  var searchText = ""
-     let adaptiveColumns = [ GridItem(.adaptive(minimum: 120))]
+     let adaptiveColumns = [ GridItem(.adaptive(minimum: 140))]
     
     
     var body: some View {
@@ -27,18 +27,29 @@ struct HomeView: View {
                 
                 ScrollView{
                     
-
-                    ForEach(viewModel.userData) { user in
-                        
-                        Text("User")
-                        
-                        ForEach(user.items) { item in
-                            
-                            Text(item.title)
+                    LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                        ForEach(viewModel.userData) { user in
+                            ForEach(user.items){ item in
+                                NavigationLink(destination: DetailView( title: item.title, price: item.price, description: item.description, image: item.image))
+                                { ItemView(title: item.title, price: item.price, image: item.image) }
+                            }
                             
                         }
-                        
                     }
+
+//                    ForEach(viewModel.userData) { user in
+//
+//                        Text("User")
+//
+//                        ForEach(user.items) { item in
+//
+//                            Text(item.title)
+//
+//                        }
+//
+//                    }
+                    
+                    
 //                            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
 //
 //                                ForEach(0...1, id: \.self) {
