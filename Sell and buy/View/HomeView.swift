@@ -27,30 +27,38 @@ struct HomeView: View {
                 
                 ScrollView{
                     
-                    if let userData = viewModel.userData{
-                        ForEach(userData) { datum in
+
+                    ForEach(viewModel.userData) { user in
+                        
+                        Text("User")
+                        
+                        ForEach(user.items) { item in
                             
+                            Text(item.title)
                             
-                            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
-                                
-                                ForEach($viewModel.userData) {
-                                    user in
-                                    NavigationLink(destination: DetailView( title: user.title, price: user.price, description: user.description, image: user.image))
-                                    {ItemView(title: user.title, price: user.price, image: user.image)
-                                    }
-                                    
-                                    
-                                    //                                                    ForEach(searchResults, id: \.self) { name in
-                                    //                                        NavigationLink(destination: Text(name)) {
-                                    //                                            Text(name)
-                                    //                                        }
-                                    
-                                    
-                                }
-                            }
                         }
+                        
+                    }
+//                            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+//
+//                                ForEach(0...1, id: \.self) {
+//                                    user in
+//                                    NavigationLink(destination: DetailView( title: user.title, price: user.price, description: user.description, image: user.image))
+//                                    {ItemView(title: user.title, price: user.price, image: user.image)
+//                                    }
+//
+//
+//                                    //                                                    ForEach(searchResults, id: \.self) { name in
+//                                    //                                        NavigationLink(destination: Text(name)) {
+//                                    //                                            Text(name)
+//                                    //                                        }
+//
+//
+//                                }
+//                            }
+                        
                        
-                }
+
                     
                 }
                 .padding()

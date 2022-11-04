@@ -46,7 +46,6 @@ struct ContentView: View {
                 
             } else {
                 
-                
                 SignInView(viewModel: viewModel)
                 SignUpView(viewModel: viewModel)
                 
