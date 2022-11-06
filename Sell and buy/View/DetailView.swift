@@ -25,14 +25,20 @@ struct DetailView: View {
                     AsyncImage(url: URL(string: image ?? ""), content: { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fill)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: UIScreen.main.bounds.width, height: 300)
+                            
                     }, placeholder: {
-                        Color.gray
+                        Image(systemName: "photo.artframe")
+                            .resizable()
+                            .frame(width: UIScreen.main.bounds.width, height: 300)
+                        
+                            
                     })
                     VStack(alignment: .leading, spacing: 10){
-                        Text(title).font(.pageSubTitle).foregroundColor(.white)
+                        Text(title).font(.pageSubTitle)
                         Text(price).font(.pageSubTitle).foregroundColor(Color("Border-Btn"))
-                        Text(description).font(.pageSubTitle).foregroundColor(.white)
+                        Text(description).font(.pageSubTitle)
                         
                         Button {
                             print("Call")

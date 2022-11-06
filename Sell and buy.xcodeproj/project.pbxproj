@@ -31,6 +31,7 @@
 		9EBDB7CB290C1831004CBBA8 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EBDB7C9290C1831004CBBA8 /* Poppins-Medium.ttf */; };
 		9EBDB7CC290C1831004CBBA8 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9EBDB7CA290C1831004CBBA8 /* Poppins-Regular.ttf */; };
 		9EBDB7D0290C1CC1004CBBA8 /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDB7CF290C1CC1004CBBA8 /* FontStyles.swift */; };
+		9EC1AF6B2917218F00AC9862 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC1AF6A2917218F00AC9862 /* ShimmerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		9EBDB7CA290C1831004CBBA8 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		9EBDB7CD290C1860004CBBA8 /* Sell-and-buy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Sell-and-buy-Info.plist"; sourceTree = SOURCE_ROOT; };
 		9EBDB7CF290C1CC1004CBBA8 /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
+		9EC1AF6A2917218F00AC9862 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				9E465EA6290C21830033EFE5 /* CustomTextField.swift */,
 				9E465EA8290C2B280033EFE5 /* CustomButton.swift */,
 				9E50EA60290D60C600A68A0F /* ItemView.swift */,
+				9EC1AF6A2917218F00AC9862 /* ShimmerView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				9EBDB7B6290C0D69004CBBA8 /* ContentView.swift in Sources */,
 				9E50EA5B290D59D100A68A0F /* HomeView.swift in Sources */,
 				9EBDB7D0290C1CC1004CBBA8 /* FontStyles.swift in Sources */,
+				9EC1AF6B2917218F00AC9862 /* ShimmerView.swift in Sources */,
 				9E6752FD291020BA0077CA36 /* ImagePicker.swift in Sources */,
 				9EBDB7B4290C0D69004CBBA8 /* Sell_and_buyApp.swift in Sources */,
 				9E50EA72290DB1F500A68A0F /* FirebaseViewModel.swift in Sources */,
@@ -394,6 +398,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Sell-and-buy-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Camera ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -424,6 +429,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Sell-and-buy-Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow Camera ";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -26,8 +26,8 @@ struct SignUpView: View {
                 // Title Container
                 VStack(alignment: .leading) {
                     if !istyping {
-                        Text("Sign Up").font(.pageTitle).foregroundColor(.white).focused($istyping)
-                        Text("Create a new account!").font(.pageSubTitle).foregroundColor(.white).focused($istyping)
+                        Text("Sign Up").font(.pageTitle).focused($istyping)
+                        Text("Create a new account!").font(.pageSubTitle).focused($istyping)
                     }
                 }
                 .padding()

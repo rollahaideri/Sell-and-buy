@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    init() {
-      UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
-//        UITabBar.appearance().backgroundColor = UIColor(Color("Field-Color"))
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = UIColor(Color("Field-Color"))
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .black
-    }
+//    init() {
+//      UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
+//    }
     
+    @State var showModal = false
+    @State var selectedItem = 1
+    @State var oldSelectedItem = 1
     @StateObject var viewModel = FirebaseViewModel()
     
     var body: some View {
@@ -23,31 +23,48 @@ struct ContentView: View {
         NavigationView {
             
             if viewModel.userLoggedIn {
-                TabView {
+                TabView (selection: $selectedItem){
                     HomeView(viewModel: viewModel)
                         .tabItem {
                             Image(systemName:"house.fill")
                                 .renderingMode(.template)
-                        }.toolbarBackground(Color.white, for: .tabBar)
+                        }
+                        .tag(1)
                     
-                    AddView(viewModel: viewModel)
+                    Text("")
+                        
                         .tabItem {
                             Image(systemName:"plus.app.fill")
                                 .renderingMode(.template)
                             
-                        }
+                        }.tag(2)
                     
                     SettingView(viewModel: viewModel)
                         .tabItem {
                             Image(systemName:"gearshape.fill")
                                 .renderingMode(.template)
-                        }
+                        }.tag(3)
                 }
+
+                
+                .onChange(of: selectedItem) { newValue in
+                    if newValue == 2 {
+                        showModal = true
+                    } else {
+                       oldSelectedItem = newValue
+                    }
+                }
+                .sheet(isPresented: $showModal) {
+                    selectedItem = oldSelectedItem
+                } content: {
+                    AddView(viewModel: viewModel, showModal: $showModal)
+                }
+
                 
             } else {
                 
                 SignInView(viewModel: viewModel)
-                SignUpView(viewModel: viewModel)
+//                SignUpView(viewModel: viewModel)
                 
                 
             }

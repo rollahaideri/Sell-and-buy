@@ -18,10 +18,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct Sell_and_buyApp: App {
+    @Environment(\.colorScheme) var colorScheme
+    @AppStorage("isDarkMode") private var isDarkMode = false
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             ContentView()
+            
+                .preferredColorScheme( isDarkMode ? .dark : .light)
+          
+                
+                
         }
     }
 }

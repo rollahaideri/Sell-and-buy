@@ -22,8 +22,8 @@ struct SignInView: View {
             VStack (spacing: 40){
                 // Title Container
                 VStack(alignment: .leading) {
-                    Text("Sign in").font(.pageTitle).foregroundColor(.white)
-                    Text("Welcome!").font(.pageSubTitle).foregroundColor(.white)
+                    Text("Sign in").font(.pageTitle)
+                    Text("Welcome!").font(.pageSubTitle)
                 }
            
                 // Email Field Container

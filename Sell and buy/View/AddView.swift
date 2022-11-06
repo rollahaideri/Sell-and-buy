@@ -11,17 +11,16 @@ import FirebaseFirestore
 
 struct AddView: View {
     
-    
-    //    init() {
-    //        UITextView.appearance().backgroundColor = .clear // First, remove the UITextView's backgroundColor.
-    //    }
     @ObservedObject var viewModel : FirebaseViewModel
     @State private var title = ""
     @State private var price = ""
     @State private var description = ""
-    @State var isPickerShowing = false
-    @State var selectedImage: UIImage?
     @State var imageUrl = ""
+    @State var isPickerShowing = false
+    @State private var sourceType: UIImagePickerController.SourceType = .camera
+    @State var selectedImage: UIImage?
+    @State var showSheet : Bool = false
+    @Binding var showModal : Bool
     
     
     var body: some View {
@@ -35,7 +34,7 @@ struct AddView: View {
                 
                 
                 VStack {
-                    Text("Publish new item").font(.pageSubTitle).foregroundColor(.white)
+                    Text("Publish new item").font(.pageSubTitle)
                     
                 }.padding()
                 
@@ -50,8 +49,13 @@ struct AddView: View {
                 // Price Container
                 VStack (alignment: .leading, spacing: 7){
                     Text("Price").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
-                    TextField("", text: $price).textFieldStyle(CustomTextField())
-                        .foregroundColor(Color("Field-Text"))
+                    
+                        TextField("", text: $price).textFieldStyle(CustomTextField())
+                            .foregroundColor(Color("Field-Text"))
+                            .keyboardType(.numberPad)
+                            .overlay(  Text("Kr").foregroundColor(Color("Field-Text")).padding(.trailing), alignment: .trailing)
+                    
+                    
                     
                 }.padding()
                 
@@ -70,107 +74,81 @@ struct AddView: View {
                 // Photo Libarary button
                 HStack{
                     Button {
-                        isPickerShowing = true
+                        showSheet = true
                     } label: {
-                        Text("Select Photo")
-                            .foregroundColor(.white)
-                    }
-                    Button {
-                        if selectedImage != nil {
-                            
-                                uploadPhoto()
-                            
-                            
+                        VStack (alignment: .leading){
+                            Text("Photo")
+                                .foregroundColor(Color("Field-Text"))
+                            if selectedImage != nil {
+                                Image(uiImage: selectedImage!)
+                                    .resizable()
+                                    .frame(width: 100, height: 70)
+                                    .cornerRadius(14)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(Color.accentColor ,lineWidth: 1)
+                                    )
+                            } else {
+                                Image(systemName: "plus")
+                                
+                                    .frame(width: 100, height: 70)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(Color.accentColor ,lineWidth: 1)
+                                    )
+                                .background(Color("Field-Color")) }
                         }
-                    } label: {
-                        Text("Upload Photo")
-                            .foregroundColor(.white)
+                    }.confirmationDialog("Source", isPresented: $showSheet) {
+                        Button("Photo Library") {
+                            isPickerShowing = true
+                            sourceType = .photoLibrary
+                        }
+                        Button("Camera") {
+                            isPickerShowing = true
+                            sourceType = .camera
+                        }
+                        
+                        
                     }
-                    
-                    
-                    if selectedImage != nil {
-                        Image(uiImage: selectedImage!)
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                    }
-                    
-                }
+                    Spacer()
+                }.padding()
                 
                 // Buttons Containar
                 VStack (spacing: 25){
                     Button {
-//                        if selectedImage != nil {
-//                            uploadPhoto()
-//                        }
+                        
                         if title != "" && price != "" && description != ""  {
                             viewModel.addData(items: Items(title: title, price: price, description: description,image: imageUrl))
+                            showModal = false
                         }
+                        
                         
                     } label: {
                         Text("Publish").font(.buttonTitle)
                     }.buttonStyle(CustomButton())
                     Button {
-                        print("Cancel Clicked")
+                        showModal = false
                     } label: {
                         Text("Cancel").font(.pageSubTitle)
-                            .foregroundColor(Color(.white))
+                        
                     }
                     
                 }.padding()
                 
             }
+            
         }
         .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
-            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing, imageUrl: $imageUrl, sourceType: sourceType)
         }
+        
     }
-    func uploadPhoto() {
-        
-        // Make sure that the selected image poperty isn't nil
-        guard selectedImage != nil else{
-            return
-        }
-        let storageRef = Storage.storage().reference()
-        
-        //Turn our image into data
-        let imageData = selectedImage!.jpegData(compressionQuality: 0.2)
-        
-        
-        guard imageData != nil else {
-            return
-        }
-        
-        // Specify the file path an name
-        let path = "images/\(UUID().uuidString).jpg"
-        let fileRef = storageRef.child(path)
-        
-        // Upload that data
-        let uploadTask = fileRef.putData(imageData!) { metadata, error in
-            if error == nil && metadata != nil {
-                
-                    fileRef.downloadURL (completion:{ url, error in
-                        guard let url = url, error == nil else {
-                            return
-                        }
-                        self.imageUrl = url.absoluteString
-                        print("Download url: \(imageUrl)")
-                        
-//                        self.imageUrl = urlString
-                        
-                        
-                    
-                        
-                    })
-                
-                
-            }
-        }
-    }
+  
     
 }
 
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddView(viewModel: FirebaseViewModel())
+        AddView(viewModel: FirebaseViewModel(),showModal: .constant(false))
     }
 }
