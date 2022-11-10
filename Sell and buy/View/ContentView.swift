@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-//    init() {
-//      UITabBar.appearance().unselectedItemTintColor = UIColor.lightGray
-//    }
     
     @State var showModal = false
     @State var selectedItem = 1
@@ -36,6 +33,10 @@ struct ContentView: View {
                         .tabItem {
                             Image(systemName:"plus.app.fill")
                                 .renderingMode(.template)
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                                
+                                
                             
                         }.tag(2)
                     
@@ -51,7 +52,7 @@ struct ContentView: View {
                     if newValue == 2 {
                         showModal = true
                     } else {
-                       oldSelectedItem = newValue
+                       oldSelectedItem = selectedItem
                     }
                 }
                 .sheet(isPresented: $showModal) {
@@ -64,9 +65,7 @@ struct ContentView: View {
             } else {
                 
                 SignInView(viewModel: viewModel)
-//                SignUpView(viewModel: viewModel)
-                
-                
+
             }
             
             

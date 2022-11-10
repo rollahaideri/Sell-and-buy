@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct DetailView: View {
+    
     var title: String
     var price: String
     var description: String
+    var phoneNumber: String
     var image: String?
+    
+    
     var body: some View {
+        
         ZStack (){
-            LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient.customGradient
                 .ignoresSafeArea()
             
             
-            
-            
-            ScrollView{
-                VStack(alignment: .leading, spacing: 10){
+            ScrollView (.vertical){
+                VStack(alignment: .leading){
                     AsyncImage(url: URL(string: image ?? ""), content: { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: UIScreen.main.bounds.width, height: 300)
                             
                     }, placeholder: {
@@ -33,32 +36,32 @@ struct DetailView: View {
                             .resizable()
                             .frame(width: UIScreen.main.bounds.width, height: 300)
                         
-                            
                     })
                     VStack(alignment: .leading, spacing: 10){
-                        Text(title).font(.pageSubTitle)
-                        Text(price).font(.pageSubTitle).foregroundColor(Color("Border-Btn"))
+                        Text(title).font(.pageTitle)
+                        Text(price + " Kr").font(Font.custom("Poppins-Medium", size: 20)).foregroundColor(Color("Border-Btn"))
+                        Divider()
+                        Text(phoneNumber)
+                        Divider()
+                        Text("Description").font(Font.custom("Poppins-Medium", size: 22))
                         Text(description).font(.pageSubTitle)
                         
-                        Button {
-                            print("Call")
-                        } label: {
-                            Text("072302020202")
-                                .foregroundColor(.white)
-                        }
                         
                     }.padding()
                     
                 }
+                    
                 
             }
             
-        }
+        }.navigationTitle("Items Detail")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.visible, for: .navigationBar)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(title: "", price: "", description: "", image: "")
+        DetailView(title: "", price: "", description: "", phoneNumber: "", image: "")
     }
 }

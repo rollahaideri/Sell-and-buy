@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct SignUpView: View {
+    
     @ObservedObject var viewModel: FirebaseViewModel
     
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
-    @FocusState private var istyping :Bool
+    @FocusState private var istyping : Bool
+    
     var body: some View {
+        
         ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient.customGradient
                 .ignoresSafeArea()
             
             VStack {
-                
-                
-                
+      
                 // Title Container
                 VStack(alignment: .leading) {
                     if !istyping {
@@ -31,10 +32,7 @@ struct SignUpView: View {
                     }
                 }
                 .padding()
-                
-                
-                
-                
+
                 // Email Field Container
                 VStack(alignment: .leading, spacing: 9){
                     Text("Email").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
@@ -44,8 +42,6 @@ struct SignUpView: View {
                         .textFieldStyle(CustomTextField())
                     
                 }.padding()
-                
-                
                 
                 // Password Field Container
                 VStack(alignment: .leading, spacing: 9){
@@ -57,8 +53,6 @@ struct SignUpView: View {
                     
                 }.padding()
                 
-                
-                
                 // Confirm Passwor Field Container
                 VStack(alignment: .leading, spacing: 9){
                     Text("Confirm Password").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
@@ -69,9 +63,7 @@ struct SignUpView: View {
                         .textFieldStyle(CustomTextField())
                     
                 }.padding()
-                
-                
-                
+
                 // Buttons Container
                 VStack (spacing: 15){
                     Button {
@@ -84,8 +76,6 @@ struct SignUpView: View {
                     
                     
                 }.padding()
-                
-                
             }
         }
     }

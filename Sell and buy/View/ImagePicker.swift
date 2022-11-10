@@ -49,12 +49,12 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("image Selected")
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            DispatchQueue.main.async {
+//            DispatchQueue.main.async {
                 self.parent.selectedImage = image
                 // Make sure that the selected image poperty isn't nil
-                guard image != nil else{
-                    return
-                }
+//                guard image != nil else{
+//                    return
+//                }
                 let storageRef = Storage.storage().reference()
                 
                 //Turn our image into data
@@ -70,7 +70,7 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
                 let fileRef = storageRef.child(path)
                 
                 // Upload that data
-                let uploadTask = fileRef.putData(imageData!) { metadata, error in
+                _ = fileRef.putData(imageData!) { metadata, error in
                     if error == nil && metadata != nil {
                         
                             fileRef.downloadURL (completion:{ url, error in
@@ -90,7 +90,7 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
                         
                     }
                 }
-            }
+//            }
             
         }
         parent.isPickerShowing = false

@@ -15,6 +15,7 @@ struct AddView: View {
     @State private var title = ""
     @State private var price = ""
     @State private var description = ""
+    @State private var phoneNumber = ""
     @State var imageUrl = ""
     @State var isPickerShowing = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -25,7 +26,7 @@ struct AddView: View {
     
     var body: some View {
         ZStack (){
-            LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient.customGradient
                 .ignoresSafeArea()
             
             
@@ -50,12 +51,20 @@ struct AddView: View {
                 VStack (alignment: .leading, spacing: 7){
                     Text("Price").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
                     
-                        TextField("", text: $price).textFieldStyle(CustomTextField())
-                            .foregroundColor(Color("Field-Text"))
-                            .keyboardType(.numberPad)
-                            .overlay(  Text("Kr").foregroundColor(Color("Field-Text")).padding(.trailing), alignment: .trailing)
+                    TextField("", text: $price).textFieldStyle(CustomTextField())
+                        .foregroundColor(Color("Field-Text"))
+                        .keyboardType(.numberPad)
+                        .overlay(Text("Kr").foregroundColor(Color("Field-Text")).padding(.trailing), alignment: .trailing)
                     
                     
+                    
+                }.padding()
+                
+                // Phone number Container
+                VStack (alignment: .leading, spacing: 7){
+                    Text("Phone Num").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
+                    TextField("", text: $phoneNumber).textFieldStyle(CustomTextField())
+                        .foregroundColor(Color("Field-Text"))
                     
                 }.padding()
                 
@@ -107,21 +116,19 @@ struct AddView: View {
                             isPickerShowing = true
                             sourceType = .camera
                         }
-                        
-                        
                     }
+                    
                     Spacer()
+                    
                 }.padding()
                 
                 // Buttons Containar
                 VStack (spacing: 25){
                     Button {
-                        
-                        if title != "" && price != "" && description != ""  {
-                            viewModel.addData(items: Items(title: title, price: price, description: description,image: imageUrl))
+                        if title != "" && price != "" && description != "" && phoneNumber != "" {
+                            viewModel.addData(items: Items(title: title, price: price, description: description,phoneNumber: phoneNumber, image: imageUrl))
                             showModal = false
                         }
-                        
                         
                     } label: {
                         Text("Publish").font(.buttonTitle)
@@ -130,21 +137,14 @@ struct AddView: View {
                         showModal = false
                     } label: {
                         Text("Cancel").font(.pageSubTitle)
-                        
                     }
-                    
                 }.padding()
-                
             }
-            
         }
         .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
             ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing, imageUrl: $imageUrl, sourceType: sourceType)
         }
-        
     }
-  
-    
 }
 
 struct AddView_Previews: PreviewProvider {

@@ -8,9 +8,6 @@
 import Foundation
 import Firebase
 import FirebaseStorage
-import SwiftUI
-
-
 
 
 class FirebaseViewModel: ObservableObject {
@@ -29,8 +26,7 @@ class FirebaseViewModel: ObservableObject {
             if let user = user {
                 self.userLoggedIn = true
                 self.currentUser = user
-                self.getAlldocument()
-//                self.listenToDb()
+                self.getAllDocument()
                 
                 
             } else {
@@ -55,6 +51,8 @@ class FirebaseViewModel: ObservableObject {
             
             
             if let authResult = authResult {
+                
+                // Creating a empty array for every new user 
                 let newItem = UserData(id: authResult.user.uid,items: [])
                 
                 do {
@@ -86,16 +84,15 @@ class FirebaseViewModel: ObservableObject {
     func logOut(){
         do {
             try Auth.auth().signOut()
-            
-            
         } catch {
             print("Error signing out")
         }
     }
     
-    func getAlldocument() {
+    // Listening to Database & getting the documents from every user
+    func getAllDocument() {
         
-        self.db.collection("users").addSnapshotListener ({ (querySnapshot, err) in
+        userDocumentListener =  self.db.collection("users").addSnapshotListener ({ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             }
@@ -105,17 +102,18 @@ class FirebaseViewModel: ObservableObject {
             }
             self.userData = []
             for document in querySnapshot.documents {
-                //                        print("\(document.documentID) => \(document.data())")
                 
                 let result = Result {
                     
-                    try document.data(as: UserData.self)                        }
+                    try document.data(as: UserData.self)
+                    
+                }
                 
                 switch result {
                 case.success(let userDocument):
                     
                     self.userData.append(userDocument)
-                    print("This is userDocument: \(userDocument)")
+                    
                     break
                 case.failure(let error):
                     print("Error getting Data: \(error.localizedDescription)")
@@ -124,41 +122,7 @@ class FirebaseViewModel: ObservableObject {
             }
         })
     }
-    // Database Listener
-//    func listenToDb() {
-//        if let currentUser = currentUser {
-//            
-//            userDocumentListener = self.db.collection("users").document(currentUser.uid).addSnapshotListener({ snapshot , error in
-//                if let error = error {
-//                    print("Error occured \(error)")
-//                    return
-//                }
-//                guard let snapshot = snapshot else {
-//                    return
-//                    
-//                }
-//                
-//                
-//                let result = Result {
-//                    try snapshot.data(as: UserData.self)
-//                }
-//                
-//                switch result {
-//                case .success(let userDocument):
-//                    
-//                    self.userData = userDocument
-//                    
-//                    print(userDocument)
-//                    break
-//                case .failure(let error):
-//                    print("Something went wrong retrieving data: \(error)")
-//                    break
-//                }
-//            })
-//            
-//        }
-//    }
-    
+
     // Stop listening to database
     func stopListeningToDb() {
         if let userDocumentListener = userDocumentListener {
@@ -166,7 +130,7 @@ class FirebaseViewModel: ObservableObject {
         }
     }
     
-    // Add data
+    // Add data via FireBase Firestore
     func addData(items: Items) {
         if let currentUser = currentUser {
             do {
@@ -177,7 +141,43 @@ class FirebaseViewModel: ObservableObject {
         }
     }
     
-    // Upload photo to firebase storage
+    // Database Listener
+    //    func listenToDb() {
+    //        if let currentUser = currentUser {
+    //
+    //            userDocumentListener = self.db.collection("users").document(currentUser.uid).addSnapshotListener({ snapshot , error in
+    //                if let error = error {
+    //                    print("Error occured \(error)")
+    //                    return
+    //                }
+    //                guard let snapshot = snapshot else {
+    //                    return
+    //
+    //                }
+    //
+    //
+    //                let result = Result {
+    //                    try snapshot.data(as: UserData.self)
+    //                }
+    //
+    //                switch result {
+    //                case .success(let userDocument):
+    //
+    //                    self.userData = userDocument
+    //
+    //                    print(userDocument)
+    //                    break
+    //                case .failure(let error):
+    //                    print("Something went wrong retrieving data: \(error)")
+    //                    break
+    //                }
+    //            })
+    //
+    //        }
+    //    }
+    
+    
+    
     
 }
 

@@ -23,6 +23,8 @@
 		9E67530229102A5D0077CA36 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9E67530129102A5D0077CA36 /* FirebaseFirestore */; };
 		9E67530429102A5D0077CA36 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9E67530329102A5D0077CA36 /* FirebaseFirestoreSwift */; };
 		9E67530629102A5D0077CA36 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 9E67530529102A5D0077CA36 /* FirebaseStorage */; };
+		9E94FC11291C12F100FF0A0C /* DotAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E94FC10291C12F100FF0A0C /* DotAnimationView.swift */; };
+		9E94FC13291D4DF900FF0A0C /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E94FC12291D4DF900FF0A0C /* Gradient.swift */; };
 		9EBDB7B4290C0D69004CBBA8 /* Sell_and_buyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDB7B3290C0D69004CBBA8 /* Sell_and_buyApp.swift */; };
 		9EBDB7B6290C0D69004CBBA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBDB7B5290C0D69004CBBA8 /* ContentView.swift */; };
 		9EBDB7B8290C0D6A004CBBA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EBDB7B7290C0D6A004CBBA8 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		9E50EA6F290DB12200A68A0F /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		9E50EA71290DB1F500A68A0F /* FirebaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewModel.swift; sourceTree = "<group>"; };
 		9E6752FC291020BA0077CA36 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9E94FC10291C12F100FF0A0C /* DotAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotAnimationView.swift; sourceTree = "<group>"; };
+		9E94FC12291D4DF900FF0A0C /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		9EBDB7B0290C0D69004CBBA8 /* Sell and buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sell and buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EBDB7B3290C0D69004CBBA8 /* Sell_and_buyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sell_and_buyApp.swift; sourceTree = "<group>"; };
 		9EBDB7B5290C0D69004CBBA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,16 +98,15 @@
 		9EBDB7B2290C0D69004CBBA8 /* Sell and buy */ = {
 			isa = PBXGroup;
 			children = (
+				9EBDB7B3290C0D69004CBBA8 /* Sell_and_buyApp.swift */,
 				9EBDB7CE290C1C80004CBBA8 /* Helper */,
-				9EBDB7CD290C1860004CBBA8 /* Sell-and-buy-Info.plist */,
-				9E50EA66290DAD4200A68A0F /* GoogleService-Info.plist */,
 				9EBDB7C8290C1808004CBBA8 /* Fonts */,
 				9EBDB7C3290C0DAF004CBBA8 /* Model */,
 				9EBDB7C2290C0DA7004CBBA8 /* View */,
 				9EBDB7C1290C0D86004CBBA8 /* ViewModel */,
-				9EBDB7B3290C0D69004CBBA8 /* Sell_and_buyApp.swift */,
-				9EBDB7B5290C0D69004CBBA8 /* ContentView.swift */,
 				9EBDB7B7290C0D6A004CBBA8 /* Assets.xcassets */,
+				9EBDB7CD290C1860004CBBA8 /* Sell-and-buy-Info.plist */,
+				9E50EA66290DAD4200A68A0F /* GoogleService-Info.plist */,
 				9EBDB7B9290C0D6A004CBBA8 /* Preview Content */,
 			);
 			path = "Sell and buy";
@@ -135,6 +138,7 @@
 				9E50EA5E290D5A0800A68A0F /* SettingView.swift */,
 				9E50EA64290D7F3C00A68A0F /* DetailView.swift */,
 				9E6752FC291020BA0077CA36 /* ImagePicker.swift */,
+				9EBDB7B5290C0D69004CBBA8 /* ContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,6 +168,8 @@
 				9E465EA8290C2B280033EFE5 /* CustomButton.swift */,
 				9E50EA60290D60C600A68A0F /* ItemView.swift */,
 				9EC1AF6A2917218F00AC9862 /* ShimmerView.swift */,
+				9E94FC10291C12F100FF0A0C /* DotAnimationView.swift */,
+				9E94FC12291D4DF900FF0A0C /* Gradient.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -261,11 +267,13 @@
 				9E465EAB290C47DD0033EFE5 /* SignUpView.swift in Sources */,
 				9EBDB7B6290C0D69004CBBA8 /* ContentView.swift in Sources */,
 				9E50EA5B290D59D100A68A0F /* HomeView.swift in Sources */,
+				9E94FC11291C12F100FF0A0C /* DotAnimationView.swift in Sources */,
 				9EBDB7D0290C1CC1004CBBA8 /* FontStyles.swift in Sources */,
 				9EC1AF6B2917218F00AC9862 /* ShimmerView.swift in Sources */,
 				9E6752FD291020BA0077CA36 /* ImagePicker.swift in Sources */,
 				9EBDB7B4290C0D69004CBBA8 /* Sell_and_buyApp.swift in Sources */,
 				9E50EA72290DB1F500A68A0F /* FirebaseViewModel.swift in Sources */,
+				9E94FC13291D4DF900FF0A0C /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

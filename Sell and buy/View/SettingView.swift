@@ -11,17 +11,12 @@ struct SettingView: View {
     
     @ObservedObject var viewModel: FirebaseViewModel
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @State var isSelected = true
-    let background = LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
-    
     
     var body: some View {
-        
-        
-        
+
         ZStack{
             
-            background
+            LinearGradient.customGradient
                 .ignoresSafeArea()
             
             VStack{
@@ -32,11 +27,10 @@ struct SettingView: View {
                         .font(Font.custom("Poppins-Medium", size: 19))
                     Divider()
                         .overlay(.primary)
-                        
-                        
+                    
+                    
                     Button {
                         isDarkMode = false
-//                        isSelected = true
                         print("Light Mode")
                     } label: {
                         HStack{
@@ -51,10 +45,9 @@ struct SettingView: View {
                     }
                     Divider()
                         .overlay(.primary)
-                        
+                    
                     Button {
                         isDarkMode = true
-//                        isSelected = false
                     } label: {
                         HStack{
                             Image(systemName: "moon.fill").foregroundColor(isDarkMode ? .accentColor : .gray)
@@ -64,16 +57,14 @@ struct SettingView: View {
                             else {
                                 Circle().stroke(Color(.gray), lineWidth: 2).frame(width: 12, height: 12)
                             }
-                            
                         }
                     }
-                    
                 }
                 .padding(.vertical)
-                    .padding(.horizontal, 25)
+                .padding(.horizontal, 25)
                 
                 Spacer()
-                
+        
                 VStack{
                     
                     Button {
@@ -81,20 +72,18 @@ struct SettingView: View {
                     } label: {
                         Text("Sign out")
                             .foregroundColor(.primary)
-                            
                             .padding()
                             .background(Color.accentColor)
                             .cornerRadius(14)
-                            
                     }
                 }
                 Spacer()
                 
             }
-
             
             
-        }
+            
+        }.toolbarBackground(.visible, for: .tabBar)
         
     }
 }

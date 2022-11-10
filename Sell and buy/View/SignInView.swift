@@ -13,10 +13,11 @@ struct SignInView: View {
     
     @State var email = ""
     @State var password = ""
+    @State var isLoading = false
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color("Background-Start"),Color("Background-End")]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient.customGradient
                 .ignoresSafeArea()
             
             VStack (spacing: 40){
@@ -25,7 +26,7 @@ struct SignInView: View {
                     Text("Sign in").font(.pageTitle)
                     Text("Welcome!").font(.pageSubTitle)
                 }
-           
+                
                 // Email Field Container
                 VStack(alignment: .leading, spacing: 9){
                     Text("Email").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
@@ -34,6 +35,7 @@ struct SignInView: View {
                         .textFieldStyle(CustomTextField())
                     
                 }.padding()
+                
                 
                 // Password Field Container
                 VStack(alignment: .leading, spacing: 9){
@@ -47,11 +49,23 @@ struct SignInView: View {
                 // Buttons Container
                 VStack (spacing: 15){
                     Button {
-                        if email != "" && password != "" {
-                            viewModel.loginUser(email: email, password: password)
+                        isLoading = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            
+                            if email != "" && password != "" {
+                                viewModel.loginUser(email: email, password: password)
+                            }
+                            isLoading = false
+                            
+                            
                         }
+                        
                     } label: {
-                        Text("Sign in").font(.buttonTitle)
+                        if isLoading {
+                            DotAnimationView()
+                            
+                        } else {Text("Sign in").font(.buttonTitle)}
+                        
                     }.buttonStyle(CustomButton())
                     
                     Text("------------------- or -------------------").foregroundColor(Color("Field-Text"))
@@ -67,7 +81,9 @@ struct SignInView: View {
                 
                 
             }
+            
         }
+        
     }
 }
 
