@@ -7,10 +7,10 @@
 
 import SwiftUI
 
+//A Shimmer that shows when the data is fetching for exemple 
 struct ShimmerView: View {
     
     @State var show = false
-    
     
     var body: some View {
         ZStack{

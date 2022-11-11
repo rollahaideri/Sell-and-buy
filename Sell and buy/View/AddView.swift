@@ -29,11 +29,9 @@ struct AddView: View {
             LinearGradient.customGradient
                 .ignoresSafeArea()
             
-            
             // Main Container
             ScrollView {
-                
-                
+                // Header text
                 VStack {
                     Text("Publish new item").font(.pageSubTitle)
                     
@@ -44,7 +42,6 @@ struct AddView: View {
                     Text("Title").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
                     TextField("", text: $title).textFieldStyle(CustomTextField())
                         .foregroundColor(Color("Field-Text"))
-                    
                 }.padding()
                 
                 // Price Container
@@ -55,9 +52,6 @@ struct AddView: View {
                         .foregroundColor(Color("Field-Text"))
                         .keyboardType(.numberPad)
                         .overlay(Text("Kr").foregroundColor(Color("Field-Text")).padding(.trailing), alignment: .trailing)
-                    
-                    
-                    
                 }.padding()
                 
                 // Phone number Container
@@ -65,7 +59,6 @@ struct AddView: View {
                     Text("Phone Num").font(.pageSubTitle).foregroundColor(Color("Field-Text"))
                     TextField("", text: $phoneNumber).textFieldStyle(CustomTextField())
                         .foregroundColor(Color("Field-Text"))
-                    
                 }.padding()
                 
                 // Description Container
@@ -122,7 +115,7 @@ struct AddView: View {
                     
                 }.padding()
                 
-                // Buttons Containar
+                // Publish Buttons Containar
                 VStack (spacing: 25){
                     Button {
                         if title != "" && price != "" && description != "" && phoneNumber != "" {

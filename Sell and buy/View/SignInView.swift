@@ -48,24 +48,20 @@ struct SignInView: View {
                 
                 // Buttons Container
                 VStack (spacing: 15){
+                    // Sign in Button
                     Button {
                         isLoading = true
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            
                             if email != "" && password != "" {
                                 viewModel.loginUser(email: email, password: password)
                             }
                             isLoading = false
-                            
-                            
                         }
                         
                     } label: {
                         if isLoading {
                             DotAnimationView()
-                            
                         } else {Text("Sign in").font(.buttonTitle)}
-                        
                     }.buttonStyle(CustomButton())
                     
                     Text("------------------- or -------------------").foregroundColor(Color("Field-Text"))
@@ -78,12 +74,8 @@ struct SignInView: View {
                     }
                     
                 }.padding()
-                
-                
             }
-            
         }
-        
     }
 }
 

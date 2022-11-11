@@ -41,15 +41,8 @@ struct HomeView: View {
                 .toolbarBackground(.visible, for: .navigationBar)
                 .toolbarBackground(.visible, for: .tabBar)
         }
-        
     }
-    
 }
-
-
-
-
-
 
 
 struct HomeView_Previews: PreviewProvider {

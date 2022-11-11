@@ -15,20 +15,18 @@ struct SettingView: View {
     var body: some View {
 
         ZStack{
-            
             LinearGradient.customGradient
                 .ignoresSafeArea()
             
             VStack{
-                
-                
+                // Theme Text
                 VStack (alignment: .leading, spacing: 10){
                     Text("Theme")
                         .font(Font.custom("Poppins-Medium", size: 19))
                     Divider()
                         .overlay(.primary)
                     
-                    
+                    // Day theme button
                     Button {
                         isDarkMode = false
                         print("Light Mode")
@@ -40,12 +38,12 @@ struct SettingView: View {
                             if isDarkMode { Circle().stroke(Color(.gray), lineWidth: 2).frame(width: 12, height: 12) } else {
                                 Circle().stroke(Color.accentColor, lineWidth: 7).frame(width: 12, height: 12)
                             }
-                            
                         }
                     }
                     Divider()
                         .overlay(.primary)
                     
+                    // Night theme button
                     Button {
                         isDarkMode = true
                     } label: {
@@ -66,7 +64,7 @@ struct SettingView: View {
                 Spacer()
         
                 VStack{
-                    
+                    // Sign out button
                     Button {
                         viewModel.logOut()
                     } label: {
@@ -81,10 +79,7 @@ struct SettingView: View {
                 
             }
             
-            
-            
         }.toolbarBackground(.visible, for: .tabBar)
-        
     }
 }
 

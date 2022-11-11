@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// The animation that show when you click a button until the functionality executes
+
 struct DotAnimationView: View {
     @State var delay: Double = 0
     @State var scale: CGFloat = 0.5

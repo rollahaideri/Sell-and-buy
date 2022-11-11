@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+
+// Custom font with diffrent sizes
 extension Font {
     
     static var pageTitle: Font {

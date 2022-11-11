@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+
+// A card/itemView for the LazyVStack in the HomeView
+
 struct ItemView: View {
     
     var title: String

@@ -17,13 +17,11 @@ struct SignUpView: View {
     @FocusState private var istyping : Bool
     
     var body: some View {
-        
         ZStack{
             LinearGradient.customGradient
                 .ignoresSafeArea()
             
             VStack {
-      
                 // Title Container
                 VStack(alignment: .leading) {
                     if !istyping {

@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
     @State var showModal = false
     @State var selectedItem = 1
     @State var oldSelectedItem = 1
@@ -29,15 +28,11 @@ struct ContentView: View {
                         .tag(1)
                     
                     Text("")
-                        
                         .tabItem {
                             Image(systemName:"plus.app.fill")
                                 .renderingMode(.template)
                                 .resizable()
                                 .frame(width: 30, height: 30)
-                                
-                                
-                            
                         }.tag(2)
                     
                     SettingView(viewModel: viewModel)
@@ -46,8 +41,6 @@ struct ContentView: View {
                                 .renderingMode(.template)
                         }.tag(3)
                 }
-
-                
                 .onChange(of: selectedItem) { newValue in
                     if newValue == 2 {
                         showModal = true
@@ -61,16 +54,10 @@ struct ContentView: View {
                     AddView(viewModel: viewModel, showModal: $showModal)
                 }
 
-                
             } else {
-                
                 SignInView(viewModel: viewModel)
-
             }
-            
-            
         }
-        
     }
 }
 

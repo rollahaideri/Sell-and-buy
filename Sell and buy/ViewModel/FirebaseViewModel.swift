@@ -27,14 +27,10 @@ class FirebaseViewModel: ObservableObject {
                 self.userLoggedIn = true
                 self.currentUser = user
                 self.getAllDocument()
-                
-                
             } else {
-                
                 self.userLoggedIn = false
                 self.currentUser = nil
                 self.stopListeningToDb()
-                
             }
         }
     }
@@ -46,9 +42,7 @@ class FirebaseViewModel: ObservableObject {
         Auth.auth().createUser(withEmail: email, password: password) {( authResult, error ) in
             if let error = error {
                 print(error.localizedDescription)
-                
             }
-            
             
             if let authResult = authResult {
                 
@@ -140,45 +134,6 @@ class FirebaseViewModel: ObservableObject {
             }
         }
     }
-    
-    // Database Listener
-    //    func listenToDb() {
-    //        if let currentUser = currentUser {
-    //
-    //            userDocumentListener = self.db.collection("users").document(currentUser.uid).addSnapshotListener({ snapshot , error in
-    //                if let error = error {
-    //                    print("Error occured \(error)")
-    //                    return
-    //                }
-    //                guard let snapshot = snapshot else {
-    //                    return
-    //
-    //                }
-    //
-    //
-    //                let result = Result {
-    //                    try snapshot.data(as: UserData.self)
-    //                }
-    //
-    //                switch result {
-    //                case .success(let userDocument):
-    //
-    //                    self.userData = userDocument
-    //
-    //                    print(userDocument)
-    //                    break
-    //                case .failure(let error):
-    //                    print("Something went wrong retrieving data: \(error)")
-    //                    break
-    //                }
-    //            })
-    //
-    //        }
-    //    }
-    
-    
-    
-    
 }
 
 

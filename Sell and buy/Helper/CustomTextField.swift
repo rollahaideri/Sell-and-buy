@@ -6,8 +6,9 @@
 //
 
 import Foundation
-
 import SwiftUI
+
+// A Custom TextField and reuseble
 
 struct CustomTextField: TextFieldStyle {
     @FocusState private var isFieldFocused : Bool

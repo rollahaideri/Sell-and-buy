@@ -22,7 +22,6 @@ struct DetailView: View {
             LinearGradient.customGradient
                 .ignoresSafeArea()
             
-            
             ScrollView (.vertical){
                 VStack(alignment: .leading){
                     AsyncImage(url: URL(string: image ?? ""), content: { image in
@@ -46,12 +45,8 @@ struct DetailView: View {
                         Text("Description").font(Font.custom("Poppins-Medium", size: 22))
                         Text(description).font(.pageSubTitle)
                         
-                        
                     }.padding()
-                    
                 }
-                    
-                
             }
             
         }.navigationTitle("Items Detail")

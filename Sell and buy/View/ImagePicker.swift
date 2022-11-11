@@ -49,17 +49,13 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("image Selected")
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//            DispatchQueue.main.async {
+
                 self.parent.selectedImage = image
-                // Make sure that the selected image poperty isn't nil
-//                guard image != nil else{
-//                    return
-//                }
+ 
                 let storageRef = Storage.storage().reference()
                 
                 //Turn our image into data
                 let imageData = image.jpegData(compressionQuality: 0.2)
-                
                 
                 guard imageData != nil else {
                     return
@@ -73,25 +69,16 @@ class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationContro
                 _ = fileRef.putData(imageData!) { metadata, error in
                     if error == nil && metadata != nil {
                         
+                        // Get the download url from firebase storage
                             fileRef.downloadURL (completion:{ url, error in
                                 guard let url = url, error == nil else {
                                     return
                                 }
                                 self.parent.imageUrl = url.absoluteString
-//                                print("Download url: \(self.imageUrl)")
-                                
-        //                        self.imageUrl = urlString
-                                
-                                
-                            
-                                
+
                             })
-                        
-                        
                     }
                 }
-//            }
-            
         }
         parent.isPickerShowing = false
     }
